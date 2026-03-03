@@ -1,0 +1,316 @@
+{
+  "lastUpdated": "2025-01-01",
+  "source": "European Commission VAT rates database",
+  "countries": {
+    "AT": {
+      "name": "Austria",
+      "code": "AT",
+      "currency": "EUR",
+      "standard": 20,
+      "reduced": [10, 13],
+      "superReduced": null,
+      "parking": 13,
+      "notes": "13% rate applies to certain cultural events, wine from farmers. 10% for food, books, passenger transport."
+    },
+    "BE": {
+      "name": "Belgium",
+      "code": "BE",
+      "currency": "EUR",
+      "standard": 21,
+      "reduced": [6, 12],
+      "superReduced": null,
+      "parking": 12,
+      "notes": "6% for basic necessities, books, water. 12% for social housing, restaurant services, certain energy."
+    },
+    "BG": {
+      "name": "Bulgaria",
+      "code": "BG",
+      "currency": "BGN",
+      "standard": 20,
+      "reduced": [9],
+      "superReduced": null,
+      "parking": null,
+      "notes": "9% for hotel accommodation, restaurant services (until 30 June 2025), books."
+    },
+    "HR": {
+      "name": "Croatia",
+      "code": "HR",
+      "currency": "EUR",
+      "standard": 25,
+      "reduced": [5, 13],
+      "superReduced": null,
+      "parking": null,
+      "notes": "13% for accommodation, food service. 5% for books, basic food, medical equipment."
+    },
+    "CY": {
+      "name": "Cyprus",
+      "code": "CY",
+      "currency": "EUR",
+      "standard": 19,
+      "reduced": [5, 9],
+      "superReduced": null,
+      "parking": null,
+      "notes": "9% for accommodation, restaurant services. 5% for books, newspapers, certain food."
+    },
+    "CZ": {
+      "name": "Czech Republic",
+      "code": "CZ",
+      "currency": "CZK",
+      "standard": 21,
+      "reduced": [12],
+      "superReduced": null,
+      "parking": null,
+      "notes": "As of 2024, two reduced rates (10% and 15%) merged into single 12% rate."
+    },
+    "DK": {
+      "name": "Denmark",
+      "code": "DK",
+      "currency": "DKK",
+      "standard": 25,
+      "reduced": [],
+      "superReduced": null,
+      "parking": null,
+      "notes": "Denmark applies no reduced VAT rates. Zero rate for newspapers (digital and print)."
+    },
+    "EE": {
+      "name": "Estonia",
+      "code": "EE",
+      "currency": "EUR",
+      "standard": 22,
+      "reduced": [9, 13],
+      "superReduced": null,
+      "parking": null,
+      "notes": "Standard rate increased to 22% from 1 Jan 2024. 9% for accommodation, press. 13% for certain goods from 2025."
+    },
+    "FI": {
+      "name": "Finland",
+      "code": "FI",
+      "currency": "EUR",
+      "standard": 25.5,
+      "reduced": [10, 14],
+      "superReduced": null,
+      "parking": null,
+      "notes": "Standard rate increased to 25.5% from 1 Sep 2024. 14% for food, restaurant services. 10% for books, pharma, transport."
+    },
+    "FR": {
+      "name": "France",
+      "code": "FR",
+      "currency": "EUR",
+      "standard": 20,
+      "reduced": [5.5, 10],
+      "superReduced": 2.1,
+      "parking": null,
+      "notes": "10% for restaurants, transport, renovation. 5.5% for food, books, energy. 2.1% for press, certain medicines."
+    },
+    "DE": {
+      "name": "Germany",
+      "code": "DE",
+      "currency": "EUR",
+      "standard": 19,
+      "reduced": [7],
+      "superReduced": null,
+      "parking": null,
+      "notes": "7% for food, books, newspapers, public transport, cultural events."
+    },
+    "GR": {
+      "name": "Greece",
+      "code": "GR",
+      "currency": "EUR",
+      "standard": 24,
+      "reduced": [6, 13],
+      "superReduced": null,
+      "parking": null,
+      "notes": "13% for food, energy, hotel. 6% for pharma, books, theatre. Reduced rates on certain islands."
+    },
+    "HU": {
+      "name": "Hungary",
+      "code": "HU",
+      "currency": "HUF",
+      "standard": 27,
+      "reduced": [5, 18],
+      "superReduced": null,
+      "parking": null,
+      "notes": "Highest standard rate in EU. 18% for basic food, dairy, bakery. 5% for books, pharma, accommodation, new housing."
+    },
+    "IE": {
+      "name": "Ireland",
+      "code": "IE",
+      "currency": "EUR",
+      "standard": 23,
+      "reduced": [9, 13.5],
+      "superReduced": 4.8,
+      "parking": 13.5,
+      "notes": "13.5% for building services, energy. 9% for newspapers, e-publications, sport facilities. 4.8% for livestock."
+    },
+    "IT": {
+      "name": "Italy",
+      "code": "IT",
+      "currency": "EUR",
+      "standard": 22,
+      "reduced": [5, 10],
+      "superReduced": 4,
+      "parking": null,
+      "notes": "10% for certain food, hotels, restaurants, renovation. 5% for certain food, social services. 4% for basic food, books, medical."
+    },
+    "LV": {
+      "name": "Latvia",
+      "code": "LV",
+      "currency": "EUR",
+      "standard": 21,
+      "reduced": [5, 12],
+      "superReduced": null,
+      "parking": null,
+      "notes": "12% for certain food, pharma, public transport, accommodation. 5% for fruit, vegetables, books."
+    },
+    "LT": {
+      "name": "Lithuania",
+      "code": "LT",
+      "currency": "EUR",
+      "standard": 21,
+      "reduced": [5, 9],
+      "superReduced": null,
+      "parking": null,
+      "notes": "9% for books, periodicals, accommodation, cultural/sport events. 5% for pharma, medical devices."
+    },
+    "LU": {
+      "name": "Luxembourg",
+      "code": "LU",
+      "currency": "EUR",
+      "standard": 17,
+      "reduced": [8],
+      "superReduced": 3,
+      "parking": 14,
+      "notes": "Lowest standard rate in EU. 8% for gas, electricity, certain services. 3% for food, books, children's clothing, water."
+    },
+    "MT": {
+      "name": "Malta",
+      "code": "MT",
+      "currency": "EUR",
+      "standard": 18,
+      "reduced": [5, 7],
+      "superReduced": null,
+      "parking": null,
+      "notes": "7% for accommodation. 5% for electricity, confectionery, printed matter, medical accessories."
+    },
+    "NL": {
+      "name": "Netherlands",
+      "code": "NL",
+      "currency": "EUR",
+      "standard": 21,
+      "reduced": [9],
+      "superReduced": null,
+      "parking": null,
+      "notes": "9% for food, water, pharma, books, hotels, cultural events, passenger transport."
+    },
+    "PL": {
+      "name": "Poland",
+      "code": "PL",
+      "currency": "PLN",
+      "standard": 23,
+      "reduced": [5, 8],
+      "superReduced": null,
+      "parking": null,
+      "notes": "8% for pharma, transport, restaurants, hotels. 5% for food, books."
+    },
+    "PT": {
+      "name": "Portugal",
+      "code": "PT",
+      "currency": "EUR",
+      "standard": 23,
+      "reduced": [6, 13],
+      "superReduced": null,
+      "parking": 13,
+      "notes": "13% for certain food, wine, agricultural inputs. 6% for basic food, books, pharma, transport."
+    },
+    "RO": {
+      "name": "Romania",
+      "code": "RO",
+      "currency": "RON",
+      "standard": 19,
+      "reduced": [5, 9],
+      "superReduced": null,
+      "parking": null,
+      "notes": "9% for food, restaurants, accommodation, water. 5% for books, cultural events, social housing."
+    },
+    "SK": {
+      "name": "Slovakia",
+      "code": "SK",
+      "currency": "EUR",
+      "standard": 23,
+      "reduced": [5, 19],
+      "superReduced": null,
+      "parking": null,
+      "notes": "As of 2025: standard rate 23% (was 20%). 19% for food, restaurants, accommodation, sport. 5% for books, pharma, basic food."
+    },
+    "SI": {
+      "name": "Slovenia",
+      "code": "SI",
+      "currency": "EUR",
+      "standard": 22,
+      "reduced": [5, 9.5],
+      "superReduced": null,
+      "parking": null,
+      "notes": "9.5% for food, accommodation, cultural events, transport. 5% for books, periodicals."
+    },
+    "ES": {
+      "name": "Spain",
+      "code": "ES",
+      "currency": "EUR",
+      "standard": 21,
+      "reduced": [10],
+      "superReduced": 4,
+      "parking": null,
+      "notes": "10% for food, water, transport, hotels, restaurants. 4% for bread, milk, books, pharma, medical devices."
+    },
+    "SE": {
+      "name": "Sweden",
+      "code": "SE",
+      "currency": "SEK",
+      "standard": 25,
+      "reduced": [6, 12],
+      "superReduced": null,
+      "parking": null,
+      "notes": "12% for food, restaurants, accommodation. 6% for books, newspapers, passenger transport, cultural events."
+    },
+    "GB": {
+      "name": "United Kingdom",
+      "code": "GB",
+      "currency": "GBP",
+      "standard": 20,
+      "reduced": [5],
+      "superReduced": null,
+      "parking": null,
+      "notes": "Post-Brexit: independent VAT regime. 5% for domestic energy, children's car seats. 0% for food, books, children's clothing, public transport."
+    },
+    "NO": {
+      "name": "Norway",
+      "code": "NO",
+      "currency": "NOK",
+      "standard": 25,
+      "reduced": [12, 15],
+      "superReduced": null,
+      "parking": null,
+      "notes": "EEA member, not EU. 15% for food. 12% for transport, accommodation, cinema, broadcasting."
+    },
+    "CH": {
+      "name": "Switzerland",
+      "code": "CH",
+      "currency": "CHF",
+      "standard": 8.1,
+      "reduced": [2.6, 3.8],
+      "superReduced": null,
+      "parking": null,
+      "notes": "Not EU/EEA. Rates updated 1 Jan 2024. 3.8% for accommodation. 2.6% for food, books, newspapers, medicine."
+    },
+    "IS": {
+      "name": "Iceland",
+      "code": "IS",
+      "currency": "ISK",
+      "standard": 24,
+      "reduced": [11],
+      "superReduced": null,
+      "parking": null,
+      "notes": "EEA member, not EU. 11% for food, accommodation, books, newspapers."
+    }
+  }
+}

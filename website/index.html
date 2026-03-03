@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>euinvoice — European Invoicing Rules for AI</title>
+  <meta name="description" content="MCP server for European invoicing rules. VAT rates, e-invoicing requirements, format standards, and compliance validation for EU-27 + EEA.">
+  <meta property="og:title" content="euinvoice — European Invoicing Rules for AI">
+  <meta property="og:description" content="MCP server for EU invoicing compliance. VAT rates, e-invoicing mandates, format specs — all accessible from your AI assistant.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://euinvoice.dev">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="/" class="logo">
+        <span class="logo-icon">§</span>
+        <span>euinvoice</span>
+      </a>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#countries">Countries</a>
+        <a href="#get-started">Get Started</a>
+        <a href="https://github.com/danielplomp/euinvoice-mcp" class="nav-gh">GitHub</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge">Open Source MCP Server</div>
+      <h1>European invoicing rules,<br>accessible from AI</h1>
+      <p class="hero-sub">VAT rates, e-invoicing mandates, format specifications, and compliance rules for 31 countries. One install, always up to date.</p>
+      <div class="hero-code">
+        <div class="code-header">
+          <span class="code-dot"></span>
+          <span class="code-dot"></span>
+          <span class="code-dot"></span>
+          <span class="code-title">claude_desktop_config.json</span>
+        </div>
+        <pre><code>{
+  <span class="ck">"mcpServers"</span>: {
+    <span class="ck">"euinvoice"</span>: {
+      <span class="ck">"command"</span>: <span class="cv">"npx"</span>,
+      <span class="ck">"args"</span>: [<span class="cv">"-y"</span>, <span class="cv">"euinvoice-mcp"</span>]
+    }
+  }
+}</code></pre>
+      </div>
+      <div class="hero-actions">
+        <a href="#get-started" class="btn btn-primary">Get Started</a>
+        <a href="https://github.com/danielplomp/euinvoice-mcp" class="btn btn-secondary">View on GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="features">
+    <div class="container">
+      <h2>Everything you need for EU invoice compliance</h2>
+      <p class="section-sub">10 tools and 4 data resources covering the full European invoicing landscape.</p>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">%</div>
+          <h3>VAT Rates</h3>
+          <p>Standard, reduced, super-reduced, and parking rates for every country. Always current.</p>
+          <div class="feature-example">
+            <code>"What's the VAT rate for books in France?"</code>
+            <span class="feature-result">→ 5.5% (reduced rate)</span>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>E-Invoicing Requirements</h3>
+          <p>B2G, B2B, and B2C mandates. Systems, platforms, timelines, and clearance models per country.</p>
+          <div class="feature-example">
+            <code>"Is e-invoicing mandatory in Italy?"</code>
+            <span class="feature-result">→ Yes — all transactions via SDI since 2019</span>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">◇</div>
+          <h3>Format Standards</h3>
+          <p>UBL, CII, Factur-X, XRechnung, FatturaPA, Peppol BIS — specs, pros/cons, and usage.</p>
+          <div class="feature-example">
+            <code>"What format for German B2G invoices?"</code>
+            <span class="feature-result">→ XRechnung 3.0 via ZRE/Peppol</span>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">✓</div>
+          <h3>Field Validation</h3>
+          <p>Required fields per jurisdiction and transaction type. Common EU rules plus country-specific extras.</p>
+          <div class="feature-example">
+            <code>"What fields for an invoice to Portugal?"</code>
+            <span class="feature-result">→ Standard fields + ATCUD, QR code, SAF-T hash</span>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">↔</div>
+          <h3>Reverse Charge</h3>
+          <p>When to apply reverse charge, what to put on the invoice, and how the buyer should handle it.</p>
+          <div class="feature-example">
+            <code>"Selling SaaS from NL to DE company"</code>
+            <span class="feature-result">→ Reverse charge Art. 196, no VAT</span>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">●</div>
+          <h3>OSS Rules</h3>
+          <p>One-Stop Shop schemes for cross-border B2C. Thresholds, registration, and reporting requirements.</p>
+          <div class="feature-example">
+            <code>"When do I need to register for OSS?"</code>
+            <span class="feature-result">→ Above €10,000 cross-border B2C</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="how-it-works">
+    <div class="container">
+      <h2>How it works</h2>
+      <p class="section-sub">euinvoice is a Model Context Protocol server. It gives AI assistants direct access to structured EU invoicing data.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h3>Install</h3>
+            <p>One command. Works with any MCP-compatible client.</p>
+            <code class="step-code">npm install -g euinvoice-mcp</code>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h3>Connect</h3>
+            <p>Add to Claude Desktop, Cursor, or any MCP client config.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h3>Ask</h3>
+            <p>Your AI assistant now has complete EU invoicing knowledge. Ask in natural language.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Countries -->
+  <section id="countries" class="countries">
+    <div class="container">
+      <h2>31 countries covered</h2>
+      <p class="section-sub">All EU-27 member states plus United Kingdom, Norway, Switzerland, and Iceland.</p>
+      <div class="country-grid" id="countryGrid"></div>
+      <p class="country-note">Data includes 2024/2025 rate changes and mandate updates.</p>
+    </div>
+  </section>
+
+  <!-- Get Started -->
+  <section id="get-started" class="get-started">
+    <div class="container">
+      <h2>Get started in 30 seconds</h2>
+      <div class="install-tabs">
+        <button class="tab active" data-tab="claude">Claude Desktop</button>
+        <button class="tab" data-tab="cursor">Cursor / VS Code</button>
+        <button class="tab" data-tab="source">From Source</button>
+      </div>
+      <div class="install-content">
+        <div class="tab-panel active" id="tab-claude">
+          <p>Add to <code>claude_desktop_config.json</code>:</p>
+          <pre><code>{
+  "mcpServers": {
+    "euinvoice": {
+      "command": "npx",
+      "args": ["-y", "euinvoice-mcp"]
+    }
+  }
+}</code></pre>
+        </div>
+        <div class="tab-panel" id="tab-cursor">
+          <p>Add to your MCP settings:</p>
+          <pre><code>{
+  "euinvoice": {
+    "command": "npx",
+    "args": ["-y", "euinvoice-mcp"]
+  }
+}</code></pre>
+        </div>
+        <div class="tab-panel" id="tab-source">
+          <pre><code>git clone https://github.com/danielplomp/euinvoice-mcp.git
+cd euinvoice-mcp
+npm install
+npm run build
+node dist/index.js</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <h2>Open source, MIT licensed</h2>
+      <p>Built for developers who deal with European invoicing. Contributions welcome.</p>
+      <div class="cta-actions">
+        <a href="https://github.com/danielplomp/euinvoice-mcp" class="btn btn-primary">Star on GitHub</a>
+        <a href="https://www.npmjs.com/package/euinvoice-mcp" class="btn btn-secondary">View on npm</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <span class="logo-icon">§</span> euinvoice
+      </div>
+      <div class="footer-right">
+        <a href="https://github.com/danielplomp/euinvoice-mcp">GitHub</a>
+        <a href="https://www.npmjs.com/package/euinvoice-mcp">npm</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Country grid
+    const countries = [
+      { code: "AT", name: "Austria", vat: 20 }, { code: "BE", name: "Belgium", vat: 21 },
+      { code: "BG", name: "Bulgaria", vat: 20 }, { code: "HR", name: "Croatia", vat: 25 },
+      { code: "CY", name: "Cyprus", vat: 19 }, { code: "CZ", name: "Czech Republic", vat: 21 },
+      { code: "DK", name: "Denmark", vat: 25 }, { code: "EE", name: "Estonia", vat: 22 },
+      { code: "FI", name: "Finland", vat: 25.5 }, { code: "FR", name: "France", vat: 20 },
+      { code: "DE", name: "Germany", vat: 19 }, { code: "GR", name: "Greece", vat: 24 },
+      { code: "HU", name: "Hungary", vat: 27 }, { code: "IE", name: "Ireland", vat: 23 },
+      { code: "IT", name: "Italy", vat: 22 }, { code: "LV", name: "Latvia", vat: 21 },
+      { code: "LT", name: "Lithuania", vat: 21 }, { code: "LU", name: "Luxembourg", vat: 17 },
+      { code: "MT", name: "Malta", vat: 18 }, { code: "NL", name: "Netherlands", vat: 21 },
+      { code: "PL", name: "Poland", vat: 23 }, { code: "PT", name: "Portugal", vat: 23 },
+      { code: "RO", name: "Romania", vat: 19 }, { code: "SK", name: "Slovakia", vat: 23 },
+      { code: "SI", name: "Slovenia", vat: 22 }, { code: "ES", name: "Spain", vat: 21 },
+      { code: "SE", name: "Sweden", vat: 25 },
+      { code: "GB", name: "United Kingdom", vat: 20 },
+      { code: "NO", name: "Norway", vat: 25 }, { code: "CH", name: "Switzerland", vat: 8.1 },
+      { code: "IS", name: "Iceland", vat: 24 },
+    ];
+    const grid = document.getElementById("countryGrid");
+    countries.forEach(c => {
+      const el = document.createElement("div");
+      el.className = "country-item";
+      el.innerHTML = `<span class="country-code">${c.code}</span><span class="country-name">${c.name}</span><span class="country-vat">${c.vat}%</span>`;
+      grid.appendChild(el);
+    });
+
+    // Tabs
+    document.querySelectorAll(".tab").forEach(tab => {
+      tab.addEventListener("click", () => {
+        document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+        document.querySelectorAll(".tab-panel").forEach(p => p.classList.remove("active"));
+        tab.classList.add("active");
+        document.getElementById("tab-" + tab.dataset.tab).classList.add("active");
+      });
+    });
+  </script>
+</body>
+</html>

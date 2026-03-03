@@ -1,0 +1,121 @@
+{
+  "lastUpdated": "2025-01-01",
+  "formats": {
+    "UBL": {
+      "name": "Universal Business Language",
+      "version": "2.1",
+      "maintainer": "OASIS",
+      "syntax": "XML",
+      "scope": "international",
+      "description": "The most widely adopted e-invoicing standard globally. Basis for EN 16931 compliance.",
+      "specification": "http://docs.oasis-open.org/ubl/UBL-2.1.html",
+      "usedIn": ["EU (EN 16931)", "Australia", "New Zealand", "Singapore"],
+      "pros": ["Widely supported", "EN 16931 compliant", "Extensive tooling"],
+      "cons": ["Verbose XML", "Complex schema"],
+      "relatedCIUS": ["Peppol BIS 3.0", "SI-UBL", "OIOUBL", "CIUS-RO"]
+    },
+    "CII": {
+      "name": "Cross-Industry Invoice",
+      "version": "D16B",
+      "maintainer": "UN/CEFACT",
+      "syntax": "XML",
+      "scope": "international",
+      "description": "UN/CEFACT standard, one of two core syntaxes for EN 16931. Basis for Factur-X/ZUGFeRD.",
+      "specification": "https://unece.org/trade/uncefact/xml-schemas",
+      "usedIn": ["EU (EN 16931)", "France", "Germany"],
+      "pros": ["EN 16931 compliant", "Basis for hybrid formats", "UN backing"],
+      "cons": ["Less tooling than UBL", "Complex namespace structure"],
+      "relatedCIUS": ["Factur-X", "ZUGFeRD", "XRechnung"]
+    },
+    "Factur-X": {
+      "name": "Factur-X / ZUGFeRD",
+      "version": "1.0 / 2.3",
+      "maintainer": "FNFE-MPE (France) + FeRD (Germany)",
+      "syntax": "Hybrid (PDF/A-3 + XML)",
+      "scope": "EU",
+      "description": "Hybrid format embedding CII XML inside a PDF/A-3. Human-readable PDF with machine-readable data. Factur-X (FR) and ZUGFeRD (DE) are identical standards.",
+      "specification": "https://fnfe-mpe.org/factur-x/",
+      "usedIn": ["France", "Germany", "Austria", "Switzerland"],
+      "pros": ["Human + machine readable", "Easy adoption (looks like PDF)", "EN 16931 compliant at COMFORT+ profiles"],
+      "cons": ["Larger file size", "PDF generation required", "Limited to CII syntax"],
+      "profiles": [
+        {"name": "Minimum", "enCompliant": false, "description": "Basic PDF with minimal metadata"},
+        {"name": "Basic WL", "enCompliant": false, "description": "Without line items"},
+        {"name": "Basic", "enCompliant": false, "description": "With line items, limited fields"},
+        {"name": "EN 16931 (Comfort)", "enCompliant": true, "description": "Full EN 16931 compliance"},
+        {"name": "Extended", "enCompliant": true, "description": "Additional fields beyond EN 16931"},
+        {"name": "XRechnung", "enCompliant": true, "description": "German B2G CIUS profile"}
+      ]
+    },
+    "XRechnung": {
+      "name": "XRechnung",
+      "version": "3.0",
+      "maintainer": "KoSIT (Germany)",
+      "syntax": "XML (UBL or CII)",
+      "scope": "Germany",
+      "description": "German CIUS (Core Invoice Usage Specification) of EN 16931. Mandatory for B2G in Germany.",
+      "specification": "https://xeinkauf.de/xrechnung/",
+      "usedIn": ["Germany"],
+      "pros": ["German B2G standard", "Strict validation", "Well-documented"],
+      "cons": ["Germany-specific", "Stricter than EN 16931 base"],
+      "requiredFields": ["Leitweg-ID (buyer reference)", "Payment terms"]
+    },
+    "FatturaPA": {
+      "name": "FatturaPA",
+      "version": "1.2.2",
+      "maintainer": "Agenzia delle Entrate (Italy)",
+      "syntax": "XML",
+      "scope": "Italy",
+      "description": "Italian national e-invoicing format. All invoices (B2B, B2C, B2G) must use this format and go through SDI.",
+      "specification": "https://www.fatturapa.gov.it/",
+      "usedIn": ["Italy"],
+      "pros": ["Complete clearance system", "Reduces tax fraud", "Single format for all"],
+      "cons": ["Italy-specific", "Not EN 16931 native", "SDI dependency"],
+      "requiredFields": ["Codice Destinatario", "PEC address (alternative)", "Tipo Documento"]
+    },
+    "Facturae": {
+      "name": "Facturae",
+      "version": "3.2.2",
+      "maintainer": "Ministry of Finance (Spain)",
+      "syntax": "XML",
+      "scope": "Spain",
+      "description": "Spanish national e-invoicing format for B2G via FACe platform.",
+      "specification": "https://www.facturae.gob.es/",
+      "usedIn": ["Spain"],
+      "pros": ["Established B2G format", "Digital signature support"],
+      "cons": ["Spain-specific", "Not EN 16931 native"]
+    },
+    "Peppol BIS": {
+      "name": "Peppol BIS Billing 3.0",
+      "version": "3.0.17",
+      "maintainer": "OpenPeppol",
+      "syntax": "XML (UBL 2.1)",
+      "scope": "international",
+      "description": "The Peppol Business Interoperability Specification for billing. CIUS of EN 16931 using UBL syntax. The de facto standard for cross-border e-invoicing in Europe.",
+      "specification": "https://peppol.org/documentation/",
+      "usedIn": ["30+ countries via Peppol network"],
+      "pros": ["Cross-border standard", "Large network", "Well-maintained", "Access point infrastructure"],
+      "cons": ["Requires Peppol network access", "UBL only (no CII)"],
+      "requiredIdentifiers": ["Peppol Participant ID", "Peppol Process ID", "Peppol Document Type ID"]
+    },
+    "ebInterface": {
+      "name": "ebInterface",
+      "version": "6.0",
+      "maintainer": "Austrian Federal Economic Chamber",
+      "syntax": "XML",
+      "scope": "Austria",
+      "description": "Austrian national e-invoicing format for B2G.",
+      "specification": "https://www.wko.at/service/netzwerke/ebinterface.html",
+      "usedIn": ["Austria"],
+      "pros": ["Established Austrian standard", "Government supported"],
+      "cons": ["Austria-specific"]
+    }
+  },
+  "enStandard": {
+    "name": "EN 16931",
+    "description": "European standard for the semantic data model of the core elements of an electronic invoice. All EU member states must accept e-invoices compliant with this standard for B2G.",
+    "coreSyntaxes": ["UBL 2.1", "CII D16B"],
+    "mandatedBy": "EU Directive 2014/55/EU",
+    "scope": "Defines the semantic model — actual syntax via UBL or CII with national CIUS extensions."
+  }
+}

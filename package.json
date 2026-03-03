@@ -1,0 +1,50 @@
+{
+  "name": "euinvoice-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for European invoicing rules — VAT rates, e-invoicing requirements, format standards, and compliance validation for EU-27 + EEA countries",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "euinvoice-mcp": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc && cp -r src/data dist/data",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts",
+    "test": "node --test test/*.test.js",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "eu",
+    "invoicing",
+    "vat",
+    "e-invoicing",
+    "peppol",
+    "ubl",
+    "factur-x",
+    "tax",
+    "compliance"
+  ],
+  "author": "Daniel Plomp",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danielplomp/euinvoice-mcp"
+  },
+  "homepage": "https://euinvoice.dev",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3",
+    "tsx": "^4.19.0",
+    "@types/node": "^22.0.0"
+  }
+}

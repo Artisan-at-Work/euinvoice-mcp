@@ -1,0 +1,147 @@
+{
+  "lastUpdated": "2025-01-01",
+  "commonRequiredFields": {
+    "description": "Fields required on all EU invoices per VAT Directive 2006/112/EC Article 226",
+    "fields": [
+      {"field": "invoiceNumber", "description": "Sequential, unique invoice number", "required": true},
+      {"field": "issueDate", "description": "Date of invoice issuance", "required": true},
+      {"field": "supplierName", "description": "Full name of the supplier", "required": true},
+      {"field": "supplierAddress", "description": "Full address of the supplier", "required": true},
+      {"field": "supplierVatId", "description": "VAT identification number of the supplier", "required": true},
+      {"field": "customerName", "description": "Full name of the customer", "required": true},
+      {"field": "customerAddress", "description": "Full address of the customer", "required": true},
+      {"field": "customerVatId", "description": "VAT ID of customer (required for B2B cross-border)", "required": "conditional"},
+      {"field": "lineItems", "description": "Description, quantity, unit price for each item/service", "required": true},
+      {"field": "taxableAmount", "description": "Net amount per VAT rate", "required": true},
+      {"field": "vatRate", "description": "VAT rate applied", "required": true},
+      {"field": "vatAmount", "description": "VAT amount per rate", "required": true},
+      {"field": "totalAmount", "description": "Total amount including VAT", "required": true},
+      {"field": "currency", "description": "Invoice currency code (ISO 4217)", "required": true},
+      {"field": "supplyDate", "description": "Date of supply (if different from invoice date)", "required": "conditional"}
+    ]
+  },
+  "countrySpecificFields": {
+    "IT": {
+      "additionalRequired": [
+        {"field": "codiceDestinatario", "description": "7-character SDI recipient code (or PEC email)"},
+        {"field": "tipoDocumento", "description": "Document type code (TD01, TD02, etc.)"},
+        {"field": "regimeneFiscale", "description": "Tax regime code"},
+        {"field": "progressivoInvio", "description": "Transmission sequence number"}
+      ]
+    },
+    "FR": {
+      "additionalRequired": [
+        {"field": "siretNumber", "description": "SIRET number for French businesses (14 digits)"},
+        {"field": "serviceCode", "description": "Service code for B2G (Chorus Pro)"},
+        {"field": "engagementNumber", "description": "Purchase order reference for B2G"}
+      ]
+    },
+    "DE": {
+      "additionalRequired": [
+        {"field": "leitwegId", "description": "Buyer reference / routing ID for B2G (Leitweg-ID)"},
+        {"field": "paymentTerms", "description": "Payment terms description"}
+      ]
+    },
+    "ES": {
+      "additionalRequired": [
+        {"field": "facturaeOrgano", "description": "Órgano Gestor, Unidad Tramitadora, Oficina Contable for B2G"},
+        {"field": "siiRegistro", "description": "SII registration data for real-time reporting"}
+      ]
+    },
+    "PL": {
+      "additionalRequired": [
+        {"field": "ksefNumber", "description": "KSeF reference number (assigned by system)"},
+        {"field": "splitPaymentMarker", "description": "Split payment mechanism indicator (if applicable)"}
+      ]
+    },
+    "PT": {
+      "additionalRequired": [
+        {"field": "atcud", "description": "Unique document code (ATCUD) — mandatory since Jan 2024"},
+        {"field": "qrCode", "description": "QR code with invoice data for tax authority"},
+        {"field": "saftHash", "description": "SAF-T hash of previous document"}
+      ]
+    },
+    "RO": {
+      "additionalRequired": [
+        {"field": "efacturaIndex", "description": "RO e-Factura index number (assigned by system)"},
+        {"field": "ciusRoFields", "description": "CIUS-RO specific mandatory fields"}
+      ]
+    },
+    "HU": {
+      "additionalRequired": [
+        {"field": "navTransactionId", "description": "NAV Online transaction ID"},
+        {"field": "invoiceCategory", "description": "NORMAL, SIMPLIFIED, or AGGREGATE"}
+      ]
+    },
+    "GR": {
+      "additionalRequired": [
+        {"field": "mydataUid", "description": "myDATA unique ID (MARK)"},
+        {"field": "mydataClassification", "description": "Income/expense classification codes"}
+      ]
+    }
+  },
+  "reverseCharge": {
+    "description": "Reverse charge mechanism — VAT liability shifts to the buyer",
+    "rules": [
+      {
+        "scenario": "Intra-EU B2B supply of goods",
+        "condition": "Supplier and customer in different EU member states, both VAT-registered",
+        "supplierAction": "Issue invoice without VAT, include customer VAT ID, add reverse charge note",
+        "customerAction": "Self-assess VAT at local rate, report in VAT return",
+        "invoiceRequirements": ["Customer VAT ID mandatory", "Note: 'Reverse charge — Article 194/196 VAT Directive'", "Net amount only, no VAT charged"]
+      },
+      {
+        "scenario": "Intra-EU B2B supply of services (general rule)",
+        "condition": "B2B services where place of supply is customer's country (Art. 44)",
+        "supplierAction": "Issue invoice without VAT, reverse charge applies",
+        "customerAction": "Self-assess VAT at local rate",
+        "invoiceRequirements": ["Customer VAT ID mandatory", "Reverse charge reference"]
+      },
+      {
+        "scenario": "Domestic reverse charge",
+        "condition": "Specific sectors (construction, scrap metal, etc.) — varies by country",
+        "supplierAction": "Issue invoice without VAT with domestic reverse charge note",
+        "customerAction": "Self-assess VAT",
+        "invoiceRequirements": ["Domestic reverse charge reference", "Applicable sector code"]
+      },
+      {
+        "scenario": "Non-EU supplier to EU business",
+        "condition": "Supplier outside EU, customer is EU VAT-registered business",
+        "supplierAction": "Issue invoice without VAT",
+        "customerAction": "Self-assess VAT at local rate, may need to report import VAT",
+        "invoiceRequirements": ["No VAT charged", "Place of supply reference"]
+      }
+    ]
+  },
+  "oss": {
+    "name": "One-Stop Shop (OSS)",
+    "description": "Simplified VAT reporting for cross-border B2C sales within the EU",
+    "schemes": [
+      {
+        "name": "Union OSS",
+        "scope": "Intra-EU B2C supply of goods and services by EU-established businesses",
+        "threshold": "EUR 10,000 combined cross-border B2C sales (per calendar year)",
+        "belowThreshold": "Charge domestic VAT rate",
+        "aboveThreshold": "Charge destination country VAT rate, report via OSS in country of establishment",
+        "reporting": "Quarterly OSS return via country of identification",
+        "registration": "Single registration in member state of establishment"
+      },
+      {
+        "name": "Non-Union OSS",
+        "scope": "B2C services by non-EU businesses to EU consumers",
+        "threshold": "No threshold — applies from first sale",
+        "aboveThreshold": "Charge destination country VAT rate",
+        "reporting": "Quarterly return via chosen member state of identification",
+        "registration": "Register in any one EU member state"
+      },
+      {
+        "name": "Import OSS (IOSS)",
+        "scope": "Distance sales of imported goods up to EUR 150",
+        "threshold": "Goods value max EUR 150 per consignment",
+        "aboveThreshold": "Charge destination country VAT at point of sale, goods import VAT-exempt",
+        "reporting": "Monthly IOSS return",
+        "registration": "Register in any EU member state (intermediary required for non-EU businesses)"
+      }
+    ]
+  }
+}
