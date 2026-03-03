@@ -81,7 +81,7 @@ Add to your MCP settings:
 ### From source
 
 ```bash
-git clone https://github.com/danielplomp/euinvoice-mcp.git
+git clone https://github.com/Artisan-at-Work/euinvoice-mcp.git
 cd euinvoice-mcp
 npm install
 npm run build
