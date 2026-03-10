@@ -1,0 +1,32 @@
+name: Auto-fill PR description
+
+on:
+  pull_request:
+    types: [opened]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  fill-description:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.body == '' || github.event.pull_request.body == null
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate description from commits
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BASE="${{ github.event.pull_request.base.sha }}"
+          HEAD="${{ github.event.pull_request.head.sha }}"
+
+          COMMITS=$(git log --format="- %s" "$BASE".."$HEAD" --reverse)
+
+          BODY="## Wijzigingen
+
+          ${COMMITS}"
+
+          gh pr edit "${{ github.event.pull_request.number }}" --body "$BODY"
