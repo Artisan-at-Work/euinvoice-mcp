@@ -1,15 +1,8 @@
-# CI voor een Node/TypeScript-repo. Roept de centrale ci-node.yml aan.
-# Zet de toggles op de scripts die deze repo echt heeft (zie package.json).
-
 name: CI
 
 on:
   pull_request:
     branches: [main]
-
-concurrency:
-  group: ci-${{ github.ref }}
-  cancel-in-progress: true
 
 jobs:
   ci:
