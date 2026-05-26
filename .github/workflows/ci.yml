@@ -1,0 +1,14 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  ci:
+    uses: artisan-at-work/.github/.github/workflows/ci-node.yml@master
+    with:
+      node-version: "22"
+      run-lint: false
+      run-build: true
+      run-test: true
